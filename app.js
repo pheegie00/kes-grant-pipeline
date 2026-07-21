@@ -1,6 +1,12 @@
+
+const today=new Date();
+let active={Strong:1,Possible:1,Watch:1,Skip:0};
+let sortKey="score", openOnly=false, q="";
+const tierRank={Strong:0,Possible:1,Watch:2,Skip:3};
 function days(d){if(!d)return null;const x=new Date(d);return Math.round((x-today)/864e5);}
 function dlCell(d,status){
   if(!d)return '<span class="dl">'+(status||'—')+'</span>';
+  if((status||'').toUpperCase().startsWith('APPLIED'))return '<span class="dl ok">'+d+' · applied</span>';
   const n=days(d);
   let cls=n<0?'closed':n<21?'soon':'ok';
   let tag=n<0?'closed':(n+'d left');
@@ -50,142 +56,6 @@ document.querySelectorAll('th[data-s]').forEach(th=>th.addEventListener('click',
 }));
 render();
 renderAlert();
-
-const RELATIONSHIPS=[
-  {
-    name:"Simons Foundation",
-    type:"Private Foundation",
-    focus:"Autism research, SFARI; largest private autism funder in the US",
-    contact:"",
-    contactTitle:"",
-    status:"cold",
-    lastTouch:"",
-    nextStep:"Identify program officer in SFARI Autism Research division; find mutual connection",
-    potential:"$500K+",
-    link:"https://www.simonsfoundation.org/funding-opportunities/"
-  },
-  {
-    name:"Pritzker Family Foundation",
-    type:"Private Foundation",
-    focus:"Early childhood, education, disability, equity in Illinois and nationally",
-    contact:"",
-    contactTitle:"",
-    status:"cold",
-    lastTouch:"",
-    nextStep:"Research current grantees in autism/disability space; find warm intro path",
-    potential:"$250K+",
-    link:"https://www.pritzkerfamilyfoundation.org"
-  },
-  {
-    name:"Walton Family Foundation",
-    type:"Private Foundation",
-    focus:"K-12 education reform, ed-tech, family economic opportunity",
-    contact:"",
-    contactTitle:"",
-    status:"cold",
-    lastTouch:"",
-    nextStep:"Target K-12 or Home Region program; find program officer via LinkedIn",
-    potential:"$250K+",
-    link:"https://www.waltonfamilyfoundation.org"
-  },
-  {
-    name:"Bill & Melinda Gates Foundation",
-    type:"Private Foundation",
-    focus:"Ed-tech, K-12, global health; no unsolicited proposals",
-    contact:"",
-    contactTitle:"",
-    status:"cold",
-    lastTouch:"",
-    nextStep:"Build credibility and visibility first; target 2028+ or via fiscal sponsor intermediary",
-    potential:"$1M+",
-    link:"https://www.gatesfoundation.org"
-  },
-  {
-    name:"Autism Science Foundation",
-    type:"Private Foundation",
-    focus:"Autism research and family support; community grants",
-    contact:"",
-    contactTitle:"",
-    status:"cold",
-    lastTouch:"",
-    nextStep:"Review current grant programs; check for family support funding track",
-    potential:"$50K–$150K",
-    link:"https://autismsciencefoundation.org"
-  },
-  {
-    name:"Google.org",
-    type:"Corporate Foundation",
-    focus:"AI for underserved populations, education, knowledge access",
-    contact:"",
-    contactTitle:"Program Officer",
-    status:"researching",
-    lastTouch:"2026-06-19",
-    nextStep:"Apply to AI Opportunity Fund; watch for Generative AI Accelerator cohort 3 announcement",
-    potential:"$100K–$1.5M",
-    link:"https://www.google.org/"
-  },
-  {
-    name:"NEXT for AUTISM",
-    type:"Nonprofit Funder",
-    focus:"Autism community-based programs; explicit equity + marginalized communities criterion",
-    contact:"",
-    contactTitle:"",
-    status:"researching",
-    lastTouch:"2026-06-19",
-    nextStep:"Watch for 2026-27 cycle opening (typically fall); prepare narrative now",
-    potential:"$25K–$100K",
-    link:"https://nextforautism.org"
-  },
-  {
-    name:"USDA NIFA AgrAbility — UMD Extension / Morgan State Extension",
-    type:"Federal Partnership (indirect)",
-    focus:"Assistive Technology for Farmers with Disabilities (ALN 10.500). TKF cannot lead — SRAPs must be led by a 1862/1890 Land-grant Cooperative Extension Service. TKF's role is the required nonprofit disability org subcontractor. Maryland Land-grant leads: University of Maryland (1862) or Morgan State University (1890). Target: build the partnership this year, submit together for FY2027.",
-    contact:"",
-    contactTitle:"Extension Program Director",
-    status:"cold",
-    lastTouch:"2026-06-20",
-    nextStep:"Identify AgrAbility Extension contact at UMD or Morgan State; pitch TKF as disability org partner for FY2027 SRAP. Angle: autism/neurodevelopmental gap in AgrAbility (historically skews physical injury); Black/Brown farm family equity gap; accessible education for farm families with disabled children.",
-    potential:"$150K–$200K/year as subcontractor (4-year SRAP)",
-    link:"https://nifa.usda.gov/grants/programs/agrability"
-  },
-  {
-    name:"Verizon Foundation",
-    type:"Corporate Foundation",
-    focus:"Digital inclusion, education, STEM",
-    contact:"",
-    contactTitle:"",
-    status:"cold",
-    lastTouch:"",
-    nextStep:"Invitation only — need warm intro from Verizon employee or current grantee",
-    potential:"$100K+",
-    link:"https://www.verizon.com/about/responsibility/foundation"
-  }
-];
-
-const APPLIED=[
-  {
-    status:"rejected",
-    title:"Thinking Machines Lab — Interactive Learning Research Grant",
-    funder:"Thinking Machines Lab (TML)",
-    applied:"2026-06-17",
-    amount:"$100,000",
-    decision:"",
-    link:"",
-    notes:"19-page proposal (TM-Interactivity-Grant-Application.pdf). Positions Superpowers as purpose-built accessible educational media with TML adaptive interaction model as differentiator. Covers children ages 2–5, minimally verbal autistic learners.",contact:"Solomon Kim · solomon@thinkingmachines.ai · linkedin.com/in/solomon-kim-7393ab154"
-  },
-  {
-    status:"submitted",
-    title:"OSEP Accessible Education Video Projects (ALN 84.327C)",
-    funder:"Dept of Education — OSERS/OSEP",
-    applied:"2026-06-25",
-    amount:"$1,050,000",
-    decision:"",
-    link:"https://apply07.grants.gov/apply/login.faces?cleanSession=1",
-    notes:"Grants.gov: GRANT14688572 · Agency tracking: H327C260008 · Opportunity: ED-GRANTS-042726-001 · AOR: Phedra Arthur · UEI: N8MRHAVEBEA7",
-    contact:"OSEP · ED-GRANTS-042726-001"
-  }
-];
-
 
 function renderAlert(){
   const cutoff=14;
