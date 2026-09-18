@@ -2,6 +2,17 @@ const DATA=[{"score": 10,"tier": "Skip","title": "Leadership Education in Neurod
 const MISSED=[{"score": 94,"tier": "Missed","title": "Understanding and Promoting Resources and Opportunities for People with Autism and Fragile X and their Families Across the Lifespan","agency": "National Center on Birth Defects and Developmental Disabilities","deadline": "2026-06-15","status": "closes in 17d","award": "","category": "Health","why": "core: autism, autistic, developmental disabilit, disabilit · pop: adolescent, children · fit: caregiver, employment, vocational · ⚠ surveillance","elig": "open to non-501(c)(3) nonprofits ✓; 501(c)(3) eligible (status pending); individuals eligible","link": "https://www.highergov.com/grant-opportunity/360357"},{"score": 77,"tier": "Missed","title": "Office of Special Education and Rehabilitative Services (OSERS): Office of Special Education Programs (OSEP): State Personnel Development Grants (SPDG) Program, Assistance Listing Number 84.323A","agency": "Department of Education","deadline": "2026-06-16","status": "closes in 18d","award": "","category": "Education","why": "core: children with disabilities, disabilit, early intervention, special education · pop: children · fit: transition services","elig": "partner-only: needs university/academic/state-agency capacity","link": "https://www.highergov.com/grant-opportunity/361904"},{"score": 75,"tier": "Missed","title": "Office of Special Education and Rehabilitative Services (OSERS): Office of Special Education Programs (OSEP): Community Parent Resource Centers (CPRCs), Assistance Listing Number 84.328C","agency": "Department of Education","deadline": "2026-06-05","status": "closes in 7d (tight)","award": "","category": "Education","why": "core: children with disabilities, disabilit, special education · pop: children","elig": "individuals eligible","link": "https://www.highergov.com/grant-opportunity/361760"},{"score": 58,"tier": "Missed","title": "Innovative Approaches to Literacy 84.215G","agency": "Department of Labor","deadline": "2026-06-09","status": "closes in 11d (tight)","award": "$375,000–$750,000","category": "Employment, Labor and Training","why": "pop: adolescent, children, students · fit: employment, literacy, low-income","elig": "501(c)(3) eligible (status pending)","link": "https://www.highergov.com/grant-opportunity/361771"},{"score": 57,"tier": "Missed","title": "Garrett Lee Smith State/Tribal Youth Suicide Prevention and Early Intervention Program","agency": "Substance Abuse and Mental Health Services Administration","deadline": "2026-06-15","status": "closes in 17d","award": "≤$735,000","category": "Health","why": "core: early intervention · pop: youth","elig": "","link": "https://www.highergov.com/grant-opportunity/360973"}];
 const APPLIED=[
   {
+    status:"submitted",
+    title:"H&R Block Fund Her Future 2026",
+    funder:"H&R Block / Hello Alice",
+    applied:"2026-09-18",
+    amount:"$45,000",
+    decision:"",
+    link:"https://www.hrblock.com/fund-her-future-small-business-grants/",
+    notes:"Additional $5,000 in small-business services; $50,000 total award package.",
+    contact:""
+  },
+  {
     status:"rejected",
     title:"Thinking Machines Lab — Interactive Learning Research Grant",
     funder:"Thinking Machines Lab (TML)",
